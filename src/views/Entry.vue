@@ -1,6 +1,7 @@
 <template>
-    <div>
-        entry
+    <div class="container">
+        <div>那记得那几款那几款</div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -13,5 +14,7 @@
 </script>
 
 <style scoped>
-
+.container{
+    margin-top:46px;
+}
 </style>
