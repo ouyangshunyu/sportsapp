@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
    <div>
        <van-nav-bar
            fixed
@@ -69,6 +70,7 @@
 
        <Foot :activeIndex="activeIndex"></Foot>
    </div>
+
 </template>
 
 <script>
