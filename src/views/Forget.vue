@@ -1,9 +1,8 @@
 <template>
     <div>
-        <van-nav-bar
-            left-arrow
-            @click-left="onClickLeft"
-        />
+        <van-nav-bar>
+            <van-icon name="arrow-left" slot="left" color="gray" @click="onClickLeft"/>
+        </van-nav-bar>
         <div class="container">
         <h1>忘记密码</h1>
 
