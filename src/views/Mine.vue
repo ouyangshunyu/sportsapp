@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
    <div>
        <van-nav-bar
            fixed
