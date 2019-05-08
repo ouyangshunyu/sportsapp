@@ -73,9 +73,9 @@
         data() {
             return {
                 phone: '',
-                phone1:'',
+                phone1: '',
                 password: '',
-                password1:'',
+                password1: '',
                 yzm: '',
                 active: 1,
                 shixiao: true,
@@ -122,28 +122,27 @@
             },
             login() {
 
-                    axios({
-                        method: 'post',
-                        url: 'http://10.8.159.34:8080/login.do',
-                        headers: {
-                            'Content-type': 'application/x-www-form-urlencoded'
-                        },
-                        data: qs.stringify({phone: this.phone1, password: this.password1})
-                    }).then((data) => {
-                         console.log(data)
-                        // if (data.data.code === 0) {
-                        //     this.$router.push('/mine')
-                        // } else {
-                        //     Toast('警示错误信息')
-                        // }
-                    })
-
-                }
-
-
+                axios({
+                    method: 'post',
+                    url: 'http://10.8.159.34:8080/login.do',
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlencoded'
+                    },
+                    data: qs.stringify({phone: this.phone1, password: this.password1})
+                }).then((data) => {
+                    console.log(data)
+                    // if (data.data.code === 0) {
+                    //     this.$router.push('/mine')
+                    // } else {
+                    //     Toast('警示错误信息')
+                    // }
+                })
 
             }
+
+
         }
+
     }
 </script>
 
