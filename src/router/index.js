@@ -27,7 +27,6 @@ import Buy from '@/views/Buy'
 import Cart from '@/views/Cart'
 import Detail from '@/views/Detail'
 
-
 Vue.use(Router);
 
 export default new Router({
