@@ -44,8 +44,13 @@
             }
         },
         mounted() {
+
+        },
+        updated() {
             var _this = this;
+
             this.$nextTick(() => {
+                console.log(this.$refs.content)
                 _this.makeScroll();
             });
         }
@@ -71,10 +76,28 @@
         float: left;
         padding-right: 2vw;
         box-sizing: border-box;
+        position: relative;
+
+    }
+    .content li a{
+        color: aliceblue;
+        display: block;
     }
     .content li img{
         width: 80vw;
         height: 20vh;
         display: block;
+
+    }
+    .content li .title{
+        position: absolute;
+        left: 10vw;
+        top:8vh;
+        font-size: 18px;
+    }
+    .content li .subtitle{
+        position: absolute;
+        left: 10vw;
+        top:12vh
     }
 </style>

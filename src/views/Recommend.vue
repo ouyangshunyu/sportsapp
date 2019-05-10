@@ -60,19 +60,20 @@
 
                 </van-cell>
             </van-cell-group>
-            <CarouselCard
+<!--            <CarouselCard
                 :interval="700000"
                 :autoplay='false'
-                height="25vh"
+
                 type="card"
                 arrow="never"
                 indicator-position="none"
                 @change="changeIndex"
             >
-                <CarouselCardItem v-for="i in 6" :key="i">
-                    <h1 v-text="i"></h1>
+                <CarouselCardItem class="cart-item" v-for="(item,index) in cardList" :key="index">
+                    <img :src="item.img" alt="">
                 </CarouselCardItem>
-            </CarouselCard>
+            </CarouselCard>-->
+            <SwiperCard @setSilderInfo="getSilderInfo" :picList="cardList"></SwiperCard>
         </div>
         <div class="follow-movie">
             <van-cell-group>
@@ -83,100 +84,52 @@
                 </van-cell>
                 <van-cell>
                 <span slot="title">
-                   减肥燃脂
+                   为你推荐
                 </span>
                     <Hscroll slot="label">
-                        <li>
+                        <li v-for="(item,index) in recommendList" >
                             <a href="">
-                                <img src="../assets/program_23.jpg" alt="">
+                                <img :src="item.img" alt="">
+                                 <p class="title">{{item.name}}</p>
+                                <p class="subtitle">{{item.people}}人训练过</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_22.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_21.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_69.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_78.jpg" alt="">
-                            </a>
-                        </li>
+
+
                     </Hscroll>
 
                 </van-cell>
                 <van-cell>
                 <span slot="title">
-                   腹肌塑造
+                  减肥燃脂
                 </span>
                     <Hscroll slot="label">
-                        <li>
+                        <li v-for="(item,index) in theme2" >
                             <a href="">
-                                <img src="../assets/program_23.jpg" alt="">
+                                <img :src="item.img" alt="">
+                                <p class="title">{{item.name}}</p>
+                                <p class="subtitle">{{item.people}}人训练过</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_22.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_21.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_69.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_78.jpg" alt="">
-                            </a>
-                        </li>
+
+
                     </Hscroll>
 
                 </van-cell>
                 <van-cell>
                 <span slot="title">
-                   瑜伽专题
+                   瑜伽系列
                 </span>
                     <Hscroll slot="label">
-                        <li>
+                        <li v-for="(item,index) in theme3" >
                             <a href="">
-                                <img src="../assets/program_23.jpg" alt="">
+                                <img :src="item.img" alt="">
+                                <p class="title">{{item.name}}</p>
+                                <p class="subtitle">{{item.people}}人训练过</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_22.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_21.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_69.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="../assets/program_78.jpg" alt="">
-                            </a>
-                        </li>
+
+
                     </Hscroll>
 
                 </van-cell>
@@ -185,31 +138,14 @@
                    教练专区
                 </span>
                     <Hscroll slot="label" class="train-area">
-                        <li>
+                        <li v-for="(item,index) in coach">
                             <a href="">
-                                <img style="width: 20vw;height: 20vw" src="../assets/program_23.jpg" alt="">
+                                <img style="width: 20vw;height: 20vw" :src="item.img" alt="">
+                                <p style="top:3vh;left: 6vw" class="subtitle">{{item.name}}</p>
+
                             </a>
                         </li>
-                        <li>
-                            <a href="">
-                                <img style="width: 20vw;height: 20vw"  src="../assets/program_22.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img style="width: 20vw;height: 20vw"  src="../assets/program_21.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img style="width: 20vw;height: 20vw"  src="../assets/program_69.jpg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img style="width: 20vw;height: 20vw"  src="../assets/program_78.jpg" alt="">
-                            </a>
-                        </li>
+
                     </Hscroll>
 
                 </van-cell>
@@ -229,9 +165,9 @@
                     工具
                 </span>
                     <div slot="label" class="tool">
-                        <a href="" >
+                        <router-link tag="a" to="/actionLibrary">
                             动作库
-                        </a>
+                        </router-link>
                         <a href="" >
                             自定义训练
                         </a>
@@ -304,6 +240,8 @@
     import {CarouselCard, CarouselCardItem} from 'vue-carousel-card'
     import 'vue-carousel-card/styles/index.css'
     import Hscroll from '@/components/Hscroll'
+    import SwiperCard from '@/components/SwiperCard'
+    import axios from 'axios'
 
     export default {
 
@@ -311,12 +249,20 @@
         data: function () {
             return {
                 indexNum: 1,
-                totalPic: 6
+                totalPic: 6,
+                cardList:[],
+                recommendList:[],
+                theme3:[],
+                theme2:[],
+                theme1:[],
+                coach:[]
+
             }
         },
         methods: {
-            changeIndex(index) {
-                this.indexNum = index + 1;
+            getSilderInfo(index,totalNum){
+                this.indexNum = index+1;
+                this.totalPic = totalNum;
 
             }
 
@@ -324,10 +270,29 @@
         components: {
             CarouselCard,
             CarouselCardItem,
-            Hscroll
+            Hscroll,
+            SwiperCard
         },
         mounted() {
             this.$emit('setActiveIndex',0);
+            var _this = this;
+            axios({
+                method:'get',
+                url:'http://10.8.159.34:8080/alltraining.do',
+            }).then(function (data) {
+                var result = data.data.data;
+
+
+               _this.cardList = result.plan;
+                _this.theme1 = result.theme1.data;
+                _this.theme2 = result.theme2.data;
+                _this.theme3 = result.theme3.data;
+
+                _this.recommendList = result.recommend;
+                _this.coach = result.coach;
+                console.log(_this.recommendList);
+            })
+
         }
 
 
@@ -377,6 +342,10 @@
         align-items: center;
         color: #FFF;
         background: linear-gradient(90deg, rgba(88, 140, 236, 1), rgba(106, 106, 207, 1))
+    }
+    .cart-item img{
+        width: 100%;
+        display:block;
     }
 
     .plan-title, .movie-title,.freedom-title {

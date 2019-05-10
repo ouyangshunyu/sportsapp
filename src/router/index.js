@@ -23,7 +23,11 @@ import PageSix from '@/views/PageSix'
 import PageSeven from '@/views/PageSeven'
 import PageEight from '@/views/PageEight'
 import Mine from "../views/Mine";
+import ActionLibrary from '../views/ActionLibrary'
 
+import SearchAction from "../views/SearchAction";
+import ActionLibraryList from "../views/ActionLibraryList";
+import ActionDetail from "../views/ActionDetail";
 
 Vue.use(Router);
 
@@ -144,7 +148,28 @@ export default new Router({
             path: '/trends',
             name: 'Trends',
             component: Trends
+        },
+        {
+            path:'/actionLibrary',
+            name:'ActionLibrary',
+            component:ActionLibrary
+        },
+        {
+            path:'/actionLibraryList',
+            name:'ActionLibraryList',
+            component:ActionLibraryList
+        },
+        {
+            path:'/searchAction',
+            name:'SearchAction',
+            component:SearchAction
+        },
+        {
+            path:'/actionDetail',
+            name:'ActionDetail',
+            component:ActionDetail
         }
+
 
 
     ]

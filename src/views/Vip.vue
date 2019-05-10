@@ -30,7 +30,8 @@
 
                     </van-cell>
                 </van-cell-group>
-                <CarouselCard
+                <SwiperCard @setSilderInfo="getSilderInfo" :picList="cardList"></SwiperCard>
+              <!--  <CarouselCard
                     :interval="700000"
                     :autoplay='false'
                     height="25vh"
@@ -42,7 +43,7 @@
                     <CarouselCardItem v-for="i in 6" :key="i">
                         <h1 v-text="i"></h1>
                     </CarouselCardItem>
-                </CarouselCard>
+                </CarouselCard>-->
             </div>
             <div class="exclusive-courses">
                 <van-cell-group>
@@ -100,21 +101,23 @@
 
 <script>
     import Foot from '@/components/Foot'
-    import {CarouselCard, CarouselCardItem} from 'vue-carousel-card'
     import 'vue-carousel-card/styles/index.css'
+    import SwiperCard from '@/components/SwiperCard'
+    import axios from  'axios'
     export default {
 
         name: "Vip",
         components:{
             Foot,
-            CarouselCard,
-            CarouselCardItem,
+
+            SwiperCard
         },
         data:function () {
            return {
                activeIndex:2,
                indexNum: 1,
                totalPic: 6,
+               cardList:[],
                exclusiveCoursesList:[
                    {
                        imgUrl:'/static/img/program_78.f0c84ea.jpg',
@@ -171,9 +174,26 @@
             changeIndex(index) {
                 this.indexNum = index + 1;
 
+            },
+            getSilderInfo(index,totalNum){
+                this.indexNum = index+1;
+                this.totalPic = totalNum;
+
             }
         },
+        mounted() {
+            var _this = this;
+            axios({
+                method:'get',
+                url:'http://10.8.159.34:8080/alltraining.do',
+            }).then(function (data) {
+                var result = data.data.data;
 
+
+                _this.cardList = result.plan;
+
+            })
+        }
 
     }
 </script>
