@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Entry from "../views/Entry"
-import Home from '@/views/Home'
+// import Home from '@/views/Home'
 import Login from '@/views/Login'
 import Forget from '@/views/Forget'
 import My from '@/views/My'
@@ -23,11 +23,15 @@ import PageSix from '@/views/PageSix'
 import PageSeven from '@/views/PageSeven'
 import PageEight from '@/views/PageEight'
 import Mine from "../views/Mine";
+
 import ActionLibrary from '../views/ActionLibrary'
 
 import SearchAction from "../views/SearchAction";
 import ActionLibraryList from "../views/ActionLibraryList";
 import ActionDetail from "../views/ActionDetail";
+import Buy from '@/views/Buy'
+import Cart from '@/views/Cart'
+import Detail from '@/views/Detail'
 
 Vue.use(Router);
 
@@ -142,7 +146,29 @@ export default new Router({
         {
             path: '/search',
             name: 'Search',
-            component: Search
+            redirect: '/buy',
+            component: Search,
+            children: [
+                {
+                    path: '/buy',
+                    name: 'Buy',
+                    component: Buy
+                },
+
+
+
+            ]
+        },
+        {
+            path: '/detail',
+            name: 'Detail',
+            component: Detail
+        },
+
+        {
+            path: '/cart',
+            name: 'Cart',
+            component: Cart
         },
         {
             path: '/trends',
