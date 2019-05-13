@@ -20,6 +20,9 @@
                 <img :src="detail.imgright" alt="">
             </div>
         </div>
+        <div class="go-back-btn" @click="goBack">
+            <van-icon name="arrow-left"></van-icon>
+        </div>
     </div>
     
 </template>
@@ -35,12 +38,17 @@
             }
 
         },
+        methods:{
+            goBack(){
+                this.$router.go(-1);
+            }
+        },
         mounted() {
             var actionId = this.$route.query.actionId;
             var _this = this;
             axios({
                 method:'get',
-                url:'http://10.8.159.34:8080/actionVideo.do',
+                url:'http://www.k4me.top:8081/funsport-1.0/actionVideo.do',
                 params:{actionid:actionId}
             })
                 .then(function (data) {
@@ -93,6 +101,18 @@
 
 
 
+    }
+    .go-back-btn{
+        background: rgba(0,0,0,0.1);
+        color: #f3f3f3;
+        position: fixed;
+        top:2vh;
+        left: 4vw;
+        width: 8vw;
+        height: 8vw;
+        text-align: center;
+        line-height: 8vw;
+        border-radius: 50%;
     }
 
 </style>

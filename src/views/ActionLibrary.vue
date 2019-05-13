@@ -49,7 +49,7 @@
             var _this = this;
             axios({
                 method:'get',
-                url:'http://10.8.159.34:8080/actionType.do',
+                url:'http://www.k4me.top:8081/funsport-1.0/actionType.do',
 
             })
                 .then(function (data) {

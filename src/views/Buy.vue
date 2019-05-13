@@ -135,17 +135,18 @@
         mounted() {
             axios({
                 method: 'get',
-                url: 'http://10.8.159.34:8080/goodsshow.do'
+                url: 'http://www.k4me.top:8081/funsport-1.0/goodsshow.do'
             }).then((data) => {
                 console.log(data.data.data[0].datas)
                 this.items =data.data.data[0].datas
             }),
                 axios({
                     method: 'get',
-                    url: 'http://10.8.159.34:8080/goodsshow.do'
+                    url: 'http://www.k4me.top:8081/funsport-1.0/goodsshow.do'
                 }).then((data) => {
                     console.log(data.data.data[1].datas)
                     this.items =data.data.data[1].datas
+                    this.items1 = data.data.data[1].datas;
                 })
 
         }

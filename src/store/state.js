@@ -1,5 +1,8 @@
 var state = {
-    img:''
+    img:'',
+    token:'',
+    nickName:'',
+    gravatar:''
 
 }
 

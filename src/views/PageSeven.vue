@@ -2,7 +2,7 @@
     <div>
 
         <div class="container">
-            <h2>根据您的信息匹配针对训练</h2>
+            <h2>已根据您的信息匹配针对训练,请登录</h2>
 
             <van-loading type="spinner" class="jiazai" />
 
@@ -20,10 +20,11 @@
             }
         },
         mounted(){
+            var _this = this;
             setTimeout(function(){
-                    console.log('aa');
-                // location.href='/login'
-                },1000)
+
+                _this.$router.push('/login');
+                },2000)
 
         }
     }
@@ -38,7 +39,7 @@
         text-align: center;
         font-weight: normal;
         font-size:18px;
-        margin-top:;
+        margin-top:0;
         padding: 0;
     }
     .jiazai{

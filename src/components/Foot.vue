@@ -33,14 +33,14 @@
                     :src="props.active ? searchIcon.active : searchIcon.normal"
                 >
             </van-tabbar-item>
-            <van-tabbar-item to="/trends">
+        <!--    <van-tabbar-item to="/trends">
                 <span>动态</span>
                 <img
                     slot="icon"
                     slot-scope="props"
                     :src="props.active ? trendsIcon.active : trendsIcon.normal"
                 >
-            </van-tabbar-item>
+            </van-tabbar-item>-->
         </van-tabbar>
     </div>
 </template>

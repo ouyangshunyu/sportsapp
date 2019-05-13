@@ -23,6 +23,7 @@ import PageSix from '@/views/PageSix'
 import PageSeven from '@/views/PageSeven'
 import PageEight from '@/views/PageEight'
 import Mine from "../views/Mine";
+import store from '../store'
 
 import ActionLibrary from '../views/ActionLibrary'
 
@@ -32,171 +33,208 @@ import ActionDetail from "../views/ActionDetail";
 import Buy from '@/views/Buy'
 import Cart from '@/views/Cart'
 import Detail from '@/views/Detail'
+import Join from "../views/Join";
+import Register from "../views/Register";
 
 Vue.use(Router);
+const routes = [
+    {
+        path: '/',
+        redirect: '/nowSports',
+        name: 'Entry',
+        component: Entry,
+        children: [
+            {
+                path: '/join',
+                name: 'Join',
+                component: Join,
+                redirect:'/login',
+                children:[
+                    {
+                        path: '/login',
+                        name: 'Login',
+                        component: Login
+                    },
+                    {
+                        path: '/register',
+                        name: 'Register',
+                        component: Register
+                    }
+                ]
+            },
 
-export default new Router({
-    routes: [
-        {
-            path: '/',
-            redirect: '/nowSports',
-            name: 'Entry',
-            component: Entry,
-            children: [
-                {
-                    path: '/login',
-                    name: 'Login',
-                    component: Login
-                },
+            {
+                path: '/Xieyi',
+                name: 'Xieyi',
+                component: Xieyi
+            },
+            {
+                path: '/forget',
+                name: 'Forget',
+                component: Forget
 
-                {
-                    path: '/Xieyi',
-                    name: 'Xieyi',
-                    component: Xieyi
-                },
-                {
-                    path: '/forget',
-                    name: 'Forget',
-                    component: Forget
-
-                },
-                {
-                    path: '/my',
-                    name: 'My',
-                    component: My,
-                    children: [
-                        {
-                            path: '/pageOne',
-                            name: 'PageOne',
-                            component: PageOne
-                        },
-                        {
-                            path: '/pageTwo',
-                            name: 'PageTwo',
-                            component: PageTwo
-                        },
-                        {
-                            path: '/pageThree',
-                            name: 'PageThree',
-                            component: PageThree
-                        },
-                        {
-                            path: '/pageFour',
-                            name: 'PageFour',
-                            component: PageFour
-                        },
-                        {
-                            path: '/pageFive',
-                            name: 'PageFive',
-                            component: PageFive
-                        },
-                        {
-                            path: '/pageSix',
-                            name: 'PageSix',
-                            component: PageSix
-                        },
-                        {
-                            path: '/pageSeven',
-                            name: 'PageSeven',
-                            component: PageSeven
-                        },
-                        {
-                            path: '/pageEight',
-                            name: 'PageEight',
-                            component: PageEight
-                        },
+            },
+            {
+                path: '/my',
+                name: 'My',
+                component: My,
+                children: [
+                    {
+                        path: '/pageOne',
+                        name: 'PageOne',
+                        component: PageOne
+                    },
+                    {
+                        path: '/pageTwo',
+                        name: 'PageTwo',
+                        component: PageTwo
+                    },
+                    {
+                        path: '/pageThree',
+                        name: 'PageThree',
+                        component: PageThree
+                    },
+                    {
+                        path: '/pageFour',
+                        name: 'PageFour',
+                        component: PageFour
+                    },
+                    {
+                        path: '/pageFive',
+                        name: 'PageFive',
+                        component: PageFive
+                    },
+                    {
+                        path: '/pageSix',
+                        name: 'PageSix',
+                        component: PageSix
+                    },
+                    {
+                        path: '/pageSeven',
+                        name: 'PageSeven',
+                        component: PageSeven
+                    },
+                    {
+                        path: '/pageEight',
+                        name: 'PageEight',
+                        component: PageEight
+                    },
                     ]
-                },
-                {
-                    path: '/nowSports',
-                    name: 'NowSports',
-                    component: NowSports
-                }
+            },
+            {
+                path: '/nowSports',
+                name: 'NowSports',
+                component: NowSports
+            }
 
             ]
+    },
+    {
+        path: '/mine',
+        name: 'Mine',
+        meta: {
+            requireAuth: true,
         },
-        {
-            path: '/mine',
-            name: 'Mine',
-            component: Mine
-        },
-        {
-            path: '/train',
-            name: 'Train',
-            component: Train,
-            redirect: '/recommend',
-            children: [
-                {
-                    path: '/recommend',
-                    name: 'Recommend',
-                    component: Recommend
-                },
-                {
-                    path: '/square',
-                    name: 'Square',
-                    component: Square
-                }
+        component: Mine
+    },
+    {
+        path: '/train',
+        name: 'Train',
+        component: Train,
+        redirect: '/recommend',
+        children: [
+            {
+                path: '/recommend',
+                name: 'Recommend',
+                component: Recommend
+            },
+            {
+                path: '/square',
+                name: 'Square',
+                component: Square
+            }
             ]
-        },
-        {
-            path: '/vip',
-            name: 'Vip',
-            component: Vip
-        },
-        {
-            path: '/search',
-            name: 'Search',
-            redirect: '/buy',
-            component: Search,
-            children: [
-                {
-                    path: '/buy',
-                    name: 'Buy',
-                    component: Buy
-                },
+    },
+    {
+        path: '/vip',
+        name: 'Vip',
+        component: Vip
+    },
+    {
+        path: '/search',
+        name: 'Search',
+        redirect: '/buy',
+        component: Search,
+        children: [
+            {
+                path: '/buy',
+                name: 'Buy',
+                component: Buy
+            },
 
 
 
             ]
-        },
-        {
-            path: '/detail',
-            name: 'Detail',
-            component: Detail
-        },
+    },
+    {
+        path: '/detail',
+        name: 'Detail',
+        component: Detail
+    },
 
-        {
-            path: '/cart',
-            name: 'Cart',
-            component: Cart
-        },
-        {
-            path: '/trends',
-            name: 'Trends',
-            component: Trends
-        },
-        {
-            path:'/actionLibrary',
-            name:'ActionLibrary',
-            component:ActionLibrary
-        },
-        {
-            path:'/actionLibraryList',
-            name:'ActionLibraryList',
-            component:ActionLibraryList
-        },
-        {
-            path:'/searchAction',
-            name:'SearchAction',
-            component:SearchAction
-        },
-        {
-            path:'/actionDetail',
-            name:'ActionDetail',
-            component:ActionDetail
-        }
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart
+    },
+    {
+        path: '/trends',
+        name: 'Trends',
+        component: Trends
+    },
+    {
+        path:'/actionLibrary',
+        name:'ActionLibrary',
+        component:ActionLibrary
+    },
+    {
+        path:'/actionLibraryList',
+        name:'ActionLibraryList',
+        component:ActionLibraryList
+    },
+    {
+        path:'/searchAction',
+        name:'SearchAction',
+        component:SearchAction
+    },
+    {
+        path:'/actionDetail',
+        name:'ActionDetail',
+        component:ActionDetail
+    }
 
 
 
     ]
+const router = new Router({
+    routes
+});
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(r => r.meta.requireAuth)) {
+        if (store.state.token) {
+            next();
+        }
+        else {
+            next({
+                path: '/join',
+                query: {redirect: to.fullPath}
+            })
+        }
+    }
+    else {
+        next();
+    }
 })
+
+
+export default router

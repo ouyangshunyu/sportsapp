@@ -3,6 +3,11 @@ var mutaitons = {
         state.img = str
 
 
+    },
+    setUserInfo:function (state,userInfo) {
+        state.token = userInfo.token;
+        state.nickName = userInfo.nickName;
+        state.gravatar = userInfo.gravatar;
     }
 
 

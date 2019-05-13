@@ -278,7 +278,7 @@
             var _this = this;
             axios({
                 method:'get',
-                url:'http://10.8.159.34:8080/alltraining.do',
+                url:'http://www.k4me.top:8081/funsport-1.0/alltraining.do',
             }).then(function (data) {
                 var result = data.data.data;
 
@@ -290,7 +290,7 @@
 
                 _this.recommendList = result.recommend;
                 _this.coach = result.coach;
-                console.log(_this.recommendList);
+
             })
 
         }

@@ -59,7 +59,7 @@
             var _this = this;
             axios({
                 method:'get',
-                url:'http://10.8.159.34:8080/actionvideolist.do',
+                url:'http://www.k4me.top:8081/funsport-1.0/actionvideolist.do',
                 params:{
                     placeid:this.placeId,
                     sex:this.sex
